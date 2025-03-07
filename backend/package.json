@@ -3,13 +3,26 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma": "dotenv -e ../.env npx prisma generate",
+    "prisma-migrate": "dotenv -e ../.env npx prisma migrate dev"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.2"
-  }
+    "@prisma/client": "^6.4.1",
+    "dotenv-cli": "^8.0.0",
+    "express": "^4.21.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "prisma": "^6.4.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "keywords": [],
+  "description": ""
 }

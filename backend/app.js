@@ -1,19 +1,14 @@
 import express from "express";
-import userRoutes from "./src/routes/userRouter.js";
+import routes from "./src/routes/routes.js";
 
 const app = express();
 app.use(express.json());
-app.use("/users", userRoutes);
-
+app.use(express.urlencoded({ extended: true }));
+app.use("/api", routes);
 const port = 3000
-
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
   
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 export default app;

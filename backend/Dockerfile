@@ -1,11 +1,15 @@
-FROM node:18-alpine
+FROM node:18.18.0
+
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
 
 COPY . .
 
-CMD ["node", "src/app.js"]
+CMD ["node", "./app.js"]
+
 EXPOSE 3000
+
