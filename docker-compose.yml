@@ -13,6 +13,19 @@ services:
     depends_on:
       - database
     container_name: backend
+    command: ["node", "app.js"]
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    container_name: frontend
+
 
   database:
     image: postgres:15
