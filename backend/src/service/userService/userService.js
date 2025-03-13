@@ -16,8 +16,8 @@ export const getUserById = async (id) => {
     return await prisma.user.findUnique({ where: { id: Number(id) } })
 }
 
-export const loginUser = async (user) => {
-    return await prisma.user.findUnique({ where: { email: user.email } })
+export const loginUser = async (email) => {
+    return await prisma.user.findUnique({ where: { email: email } })
 }
 
 export const updateUser = async (id, user) => {

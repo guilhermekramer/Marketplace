@@ -1,8 +1,11 @@
 import * as userService from '../service/userService/userService.js';
+import bcrypt from 'bcryptjs';
 
 export const createUserController = async (req, res) => {
     try {
         const user = req.body;
+        const hash = bcrypt.hashSync(user.password, 10);
+        user.password = hash;
         const newUser = await userService.createUser(user);
         res.status(201).json(newUser);
     } catch (error) {
@@ -43,16 +46,6 @@ export const getUserByIdController = async (req, res) => {
     }
 }
 
-export const loginUserController = async (req, res) => {
-    try {
-        const user = req.body;
-        const loggedUser = await userService.loginUser(user);
-        res.status(200).json(loggedUser);
-    } catch (error) {
-        console.log("Error in loginUserController function", error);
-        res.status(500).send(error);
-    }
-}
 
 export const updateUserController = async (req, res) => {
     try {
