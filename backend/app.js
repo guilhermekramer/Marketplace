@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", routes);
-const port = 3000
+const port = 8080
   
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
